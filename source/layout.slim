@@ -13,17 +13,18 @@ html
           | samadhiBot
         - else
           = link_to 'samadhiBot', '/'
-      
+
     main
-      section
+      article
         - if current_article
           h2
-            = current_article.title
+          = current_article.title
             span.date = current_article.date.strftime('%-d %B %Y')
 
-        article = yield
-      
-      aside
+        = yield
+
+    footer
+      section
         h2 Recent
         ol
           blog.articles
@@ -32,15 +33,16 @@ html
                 = link_to article.title, article 
                 span.date = article.date.strftime '%-d %B %Y'
 
+      section
         h2 Tags
         ol
           - blog.tags.each do |tag, articles|
             li = link_to "#{tag} (#{articles.size})", tag_path(tag)
 
+      section
         h2 By Year
         ol
           - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
             li = link_to "#{year} (#{articles.size})", blog_year_path(year)
 
-    footer
-      | &copy; #{Time.now.year} samadhiBot. All rights reserved.
+      .copy &copy; #{Time.now.year} samadhiBot. All rights reserved.
