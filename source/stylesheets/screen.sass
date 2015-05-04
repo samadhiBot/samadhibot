@@ -10,8 +10,27 @@ $link-hover: #80A0CB
 $text-dark: #3d271d
 $text-light: #7B6B64
 
+=font-copy
+  font-family: 'EB Garamond', serif
+
+=font-display
+  font-family: 'Cabin Sketch', serif
+  font-weight: 400
+
 =tablet()
   @media only screen and (min-width : 768px)
     @content
+
+html
+  box-sizing: border-box
+
+*, *:before, *:after
+  box-sizing: inherit
+
+*:focus
+  outline: 0
+
+article, aside, details, figcaption, figure, footer, header, main, mark, nav, section, summary, time
+  display: block
 
 @import screen/*
