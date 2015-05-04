@@ -18,7 +18,7 @@ html
       article
         - if current_article
           h2
-          = current_article.title
+            = current_article.title
             span.date = current_article.date.strftime('%-d %B %Y')
 
         = yield
