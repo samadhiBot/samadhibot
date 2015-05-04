@@ -5,20 +5,19 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2011-12-31T19:00:00-05:00</updated>
+  <updated>2015-05-04T16:17:00-04:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
   <entry>
-    <title>Example Article</title>
-    <link rel="alternate" href="http://blog.url.com/2012/01/01/example-article.html"/>
-    <id>http://blog.url.com/2012/01/01/example-article.html</id>
-    <published>2011-12-31T19:00:00-05:00</published>
-    <updated>2015-05-02T07:15:56-04:00</updated>
+    <title>Big Cats</title>
+    <link rel="alternate" href="http://blog.url.com/2015/05/04/big-cats.html"/>
+    <id>http://blog.url.com/2015/05/04/big-cats.html</id>
+    <published>2015-05-04T16:17:00-04:00</published>
+    <updated>2015-05-04T18:23:46-04:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;p&gt;This is an example article. You probably want to delete it and write your own articles!&lt;/p&gt;
-</content>
+    <content type="html">&lt;img src="/images/structure/posts/2015-05-04-big-cats.jpg" /&gt;</content>
   </entry>
 </feed>
