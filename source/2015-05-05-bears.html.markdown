@@ -1,0 +1,7 @@
+---
+title: Bears
+date: 2015-05-05 10:26 UTC
+tags: "India's notebook"
+---
+
+![Bears](/images/posts/2015-05-05-bears.jpg)

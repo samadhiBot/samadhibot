@@ -1,6 +1,4 @@
 @import '../../vendor/normalize.scss/_normalize'
-@import '../../vendor/bourbon/app/assets/stylesheets/_bourbon'
-@import '../../vendor/neat/app/assets/stylesheets/_neat'
 
 $bg-dark: #c8c3c1
 $bg-med: rgba($bg-dark, 0.2)
@@ -16,8 +14,13 @@ $text-light: #7B6B64
   font-family: 'Cabin Sketch', serif
   font-weight: 400
 
+=outer-container
+  max-width: 68em
+  margin-left: auto
+  margin-right: auto
+
 =tablet()
-  @media only screen and (min-width : 768px)
+  @media only screen and (min-width: 768px)
     @content
 
 html
