@@ -110,3 +110,9 @@ configure :build do
     ]
   }
 end
+
+helpers do
+  def article_img(path)
+    image_tag "/images/posts/#{path}#{current_article ? '' : '-small'}.jpg"
+  end
+end
