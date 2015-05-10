@@ -113,6 +113,10 @@ end
 
 helpers do
   def article_img(path)
-    image_tag "/images/posts/#{path}#{current_article ? '' : '-small'}.jpg"
+    if current_article
+      image_tag "/images/posts/#{path}.jpg"
+    else
+      link_to image_tag("/images/posts/#{path}-small.jpg"), "/#{path}.html"
+    end
   end
 end
