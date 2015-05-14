@@ -18,8 +18,8 @@ activate :blog do |blog|
   # blog.year_link = '{year}.html'
   # blog.month_link = '{year}/{month}.html'
   # blog.day_link = '{year}/{month}/{day}.html'
-  # blog.default_extension = '.markdown'
 
+  blog.default_extension = '.slim'
   blog.tag_template = 'tag.html'
   blog.calendar_template = 'calendar.html'
 
@@ -112,11 +112,12 @@ configure :build do
 end
 
 helpers do
-  def article_img(path)
+  def article_img(path, image_path = nil)
+    image_path ||= path
     if current_article
-      image_tag "/images/posts/#{path}.jpg"
+      image_tag "/images/posts/#{image_path}.jpg"
     else
-      link_to image_tag("/images/posts/#{path}-small.jpg"), "/#{path}.html"
+      link_to image_tag("/images/posts/#{image_path}-small.jpg"), "/#{path}.html"
     end
   end
 end
