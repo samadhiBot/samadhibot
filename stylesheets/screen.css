@@ -624,15 +624,28 @@ footer {
     text-align: left; }
   /* line 16, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_footer.sass */
   footer .copy {
-    clear: both;
     opacity: 0.6;
     padding: 1rem 0; }
+  /* line 20, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_footer.sass */
+  footer .table {
+    display: inline-block;
+    margin-top: 16px; }
   @media only screen and (min-width: 768px) {
-    /* line 22, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_footer.sass */
+    /* line 25, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_footer.sass */
+    footer .row {
+      display: table-row; }
+    /* line 28, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_footer.sass */
+    footer .table {
+      border-collapse: separate;
+      display: table;
+      margin: 0 auto; }
+    /* line 33, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_footer.sass */
     footer section {
-      display: block;
-      width: 33.3%;
-      float: left; } }
+      display: table-cell;
+      padding: 0 24px; }
+      /* line 36, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_footer.sass */
+      footer section h3 {
+        white-space: nowrap; } }
 
 /* line 1, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_global.sass */
 a {
