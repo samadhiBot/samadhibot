@@ -14,12 +14,24 @@ footer
     text-align: left
 
   .copy
-    clear: both
     opacity: 0.6
     padding: 1rem 0
 
+  .table
+    display: inline-block
+    margin-top: 16px
+
   +tablet
+    .row
+      display: table-row
+
+    .table
+      border-collapse: separate
+      display: table
+      margin: 0 auto
+
     section
-      display: block
-      width: 33.3%
-      float: left
+      display: table-cell
+      padding: 0 24px
+      h3
+        white-space: nowrap

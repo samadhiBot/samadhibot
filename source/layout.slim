@@ -26,26 +26,28 @@ html
         = yield
 
     footer
-      section
-        h3 Recent
-        ol
-          blog.articles
-            - blog.articles[0...10].each do |article|
-              li
-                = link_to article.title, article 
-                span.date = article.date.strftime '%-d %B %Y'
+      .table
+        .row
+          section
+            h3 Recent
+            ol
+              blog.articles
+                - blog.articles[0...10].each do |article|
+                  li
+                    = link_to article.title, article 
+                    span.date = article.date.strftime '%-d %B %Y'
 
-      section
-        h3 Tags
-        ol
-          - blog.tags.each do |tag, articles|
-            li = link_to "#{tag} (#{articles.size})", tag_path(tag)
+          section
+            h3 Tags
+            ol
+              - blog.tags.each do |tag, articles|
+                li = link_to "#{tag} (#{articles.size})", tag_path(tag)
 
-      section
-        h3 By Year
-        ol
-          - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
-            li = link_to "#{year} (#{articles.size})", blog_year_path(year)
+          section
+            h3 By Year
+            ol
+              - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+                li = link_to "#{year} (#{articles.size})", blog_year_path(year)
 
       .copy &copy; #{Time.now.year} samadhiBot. All rights reserved.
 
