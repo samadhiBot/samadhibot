@@ -13,6 +13,10 @@ article
       margin-top: 3rem
       padding-top: 2rem
 
+  .image
+    margin: 1.5rem auto
+    max-width: 1088px
+
   .tags, .date
     +font-copy
     font-size: 1rem
@@ -24,12 +28,8 @@ article
   img
     border: 10px solid white
     box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.1)
-    height: auto
-    width: auto
-    max-height: 1088px
-    max-width: 1088px
-    margin: 0 auto
-    display: block
+    height: 100%
+    width: 100%
 
   section
     margin: 0 auto
@@ -42,5 +42,8 @@ article
   .index
     text-align: center
     img
-      max-height: 600px
-      max-width: 600px
+      max-height: 100%
+      max-width: 100%
+
+    .image
+      max-width: 540px
