@@ -1,0 +1,8 @@
+= wrap_layout :layout do
+  article
+    - if current_article
+      h2 = current_article.title
+      .tags = current_article.tags.map { |tag| link_to tag, tag_path(tag) }.join ', '
+      .date = current_article.date.strftime('%-d %B %Y')
+
+    = yield

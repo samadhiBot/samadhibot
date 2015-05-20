@@ -4,17 +4,18 @@ per_page: 5
 ---
 .index
   - page_articles.each_with_index do |article, i|
-    h2 = link_to article.title, article
-    .tags = article.tags.map { |tag| link_to tag, tag_path(tag) }.join ', '
-    .date = article.date.strftime('%-d %B %Y')
-    = article.body
+    article
+      h2 = link_to article.title, article
+      .tags = article.tags.map { |tag| link_to tag, tag_path(tag) }.join ', '
+      .date = article.date.strftime('%-d %B %Y')
+      = article.body
 
   - if paginate && num_pages > 1
-    p.pagination
+    .pagination
       - if prev_page
-        = link_to 'Previous page', prev_page
+        = link_to '« Previous page', prev_page
       | Page #{page_number} of #{num_pages} 
       - if next_page
-        = link_to 'Next page', next_page
+        = link_to 'Next page »', next_page
 
     

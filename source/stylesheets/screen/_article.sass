@@ -1,17 +1,18 @@
 article
-  border-bottom: 1px solid $bg-med
-  padding-bottom: 1.4rem
-  margin-bottom: 1rem
+  &:after
+    +font-display
+    color: lighten($text-light, 40%)
+    content: '¶'
+    display: block
+    font-size: 2.5rem
+    margin: 3rem
+    text-align: center
 
   h2
     a
       color: $text-dark
       &:hover
         color: $text-light
-    &:not(:first-child)
-      border-top: 1px solid $bg-med
-      margin-top: 3rem
-      padding-top: 2rem
 
   .image
     margin: 1.5rem auto
@@ -23,7 +24,7 @@ article
     font-style: italic
     text-align: center
     &.date
-      opacity: .5
+      color: lighten($text-light, 40%)
 
   img
     border: 10px solid white
@@ -38,12 +39,3 @@ article
       text-align: left
     p
       margin: 1em
-
-  .index
-    text-align: center
-    img
-      max-height: 100%
-      max-width: 100%
-
-    .image
-      max-width: 540px
