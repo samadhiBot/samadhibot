@@ -587,22 +587,28 @@ article {
   article img {
     border: 10px solid white;
     box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.1);
-    width: 100%; }
-  /* line 29, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_article.sass */
+    height: auto;
+    width: auto;
+    max-height: 1088px;
+    max-width: 1088px;
+    margin: 0 auto;
+    display: block; }
+  /* line 34, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_article.sass */
   article section {
     margin: 0 auto;
     max-width: 600px; }
-    /* line 32, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_article.sass */
+    /* line 37, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_article.sass */
     article section p {
       text-align: left; }
-    /* line 34, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_article.sass */
+    /* line 39, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_article.sass */
     article section p {
       margin: 1em; }
-  /* line 37, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_article.sass */
+  /* line 42, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_article.sass */
   article .index {
     text-align: center; }
-    /* line 39, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_article.sass */
+    /* line 44, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_article.sass */
     article .index img {
+      max-height: 600px;
       max-width: 600px; }
 
 /* line 1, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_footer.sass */
@@ -739,3 +745,7 @@ main {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto; }
+
+/* line 2, /Users/sessions/www/samadhibot/samadhibot/source/stylesheets/screen/_pagination.sass */
+.pagination a {
+  padding: 0 16px; }
