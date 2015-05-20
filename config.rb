@@ -8,13 +8,13 @@ activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
   # blog.prefix = 'blog'
 
-  # blog.permalink = '{year}/{month}/{day}/{title}.html'
+  blog.permalink = '{year}/{month}/{day}/{title}.html'
   # Matcher for blog source files
-  # blog.sources = '{year}-{month}-{day}-{title}.html'
+  blog.sources = 'posts/{year}-{month}-{day}-{title}.html'
   # blog.taglink = 'tags/{tag}.html'
   # blog.layout = 'layout'
-  # blog.summary_separator = /(READMORE)/
-  # blog.summary_length = 250
+  blog.summary_separator = /(READMORE)/
+  blog.summary_length = 250
   # blog.year_link = '{year}.html'
   # blog.month_link = '{year}/{month}.html'
   # blog.day_link = '{year}/{month}/{day}.html'
@@ -24,9 +24,9 @@ activate :blog do |blog|
   blog.calendar_template = 'calendar.html'
 
   # Enable pagination
-  # blog.paginate = true
-  # blog.per_page = 10
-  # blog.page_link = 'page/{num}'
+  blog.page_link = 'page/{num}'
+  blog.paginate = true
+  blog.per_page = 5
 end
 
 page '/feed.xml', layout: false
@@ -117,7 +117,8 @@ helpers do
     if current_article
       image_tag "/images/posts/#{image_path}.jpg"
     else
-      link_to image_tag("/images/posts/#{image_path}-small.jpg"), "/#{path}.html"
+      link_to image_tag("/images/posts/#{image_path}-small.jpg"),
+              "/#{path.gsub /(\d{4})-(\d{2})-(\d{2})-(.+)/, '\1/\2/\3/\4'}.html"
     end
   end
 end
