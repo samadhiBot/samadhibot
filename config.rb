@@ -84,6 +84,10 @@ set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
 
+configure :development do
+  set :root, 'http://localhost:4567'
+end
+
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
@@ -109,6 +113,8 @@ configure :build do
       { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" }
     ]
   }
+
+  set :root, 'http://one.samadhibot.com'
 end
 
 helpers do
