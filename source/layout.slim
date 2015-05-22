@@ -4,22 +4,23 @@ html
     meta charset="utf-8"
     meta content="IE=edge;chrome=1" http-equiv="X-UA-Compatible"
     meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    = yield_content :meta
     title समाधिBot#{" - #{current_article.title}" unless current_article.nil?}
-    = feed_tag :atom, "\#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
+    = feed_tag :atom, "#{config[:root]}/feed.xml", title: "Atom Feed"
     = stylesheet_link_tag 'screen', '//fonts.googleapis.com/css?family=Cabin+Sketch|EB+Garamond'
   body
     #fb-root
-    
+
     header
-      h1 
+      h1
         - if current_page.url == '/'
           | samadhiBot
         - else
           = link_to 'samadhiBot', '/'
-      
+
     main
       = yield
-      
+
     footer
       .table
         .row
@@ -27,9 +28,9 @@ html
             h3 Recent
             ol
               blog.articles
-                - blog.articles[0...10].each do |article|
+                - blog.articles[0...5].each do |article|
                   li
-                    = link_to article.title, article 
+                    = link_to article.title, article
                     span.date = article.date.strftime '%-d %B %Y'
 
           section

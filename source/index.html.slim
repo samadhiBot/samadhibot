@@ -2,25 +2,23 @@
 pageable: true
 per_page: 5
 ---
+
 .index
   - page_articles.each_with_index do |article, i|
     article
       h2 = link_to article.title, article
       .tags = article.tags.map { |tag| link_to tag, tag_path(tag) }.join ', '
       .date = article.date.strftime('%-d %B %Y')
-      
+      .image = link_to article_img(article.data.image), article.url
+
       = article.body
-      
-      .share
-        a href="https://twitter.com/share" class="twitter-share-button" data-text=article.title data-url="#{config[:root]}#{article.url}" data-via="samadhiBot" Tweet
-        .fb-like data-href="#{config[:root]}#{article.url}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"
+
+      = partial 'share', locals: { title: article.title, url: "#{config[:root]}#{article.url}" }
 
   - if paginate && num_pages > 1
     .pagination
       - if prev_page
         = link_to '« Previous page', prev_page
-      | Page #{page_number} of #{num_pages} 
+      span Page #{page_number} of #{num_pages}
       - if next_page
         = link_to 'Next page »', next_page
-
-    
