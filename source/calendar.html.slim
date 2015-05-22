@@ -1,25 +1,27 @@
 ---
 pageable: true
+per_page: 20
 ---
-h3
-  | Archive for 
-  - case page_type
-  - when 'day'
-    = Date.new(year, month, day).strftime('%-d %B %Y %Y')
-  - when 'month'
-    = Date.new(year, month, 1).strftime('%b %Y')
-  - when 'year'
-    = year
-- if paginate && num_pages > 1
-  p
-    | Page #{page_number} of #{num_pages}
-  - if prev_page
-    p = link_to 'Previous page', prev_page
-ul
-  - page_articles.each_with_index do |article, i|
-    li
-      = link_to article.title, article
-      span.date = article.date.strftime('%-d %B %Y')
-- if paginate
-  - if next_page
-    p = link_to 'Next page', next_page
+ruby:
+  date = case page_type
+    when 'day' then Date.new(year, month, day).strftime('%-d %B %Y %Y')
+    when 'month' then Date.new(year, month, 1).strftime('%b %Y')
+    when 'year' then year
+  end
+
+.archive
+  h3 Archive for #{date}
+
+  ul
+    - page_articles.each_with_index do |article, i|
+      li
+        = link_to article.title, article
+        span.date = article.date.strftime('%-d %B %Y')
+
+  - if paginate && num_pages > 1
+    .pagination
+      - if prev_page
+        = link_to '« Previous page', prev_page
+      span Page #{page_number} of #{num_pages}
+      - if next_page
+        = link_to 'Next page »', next_page

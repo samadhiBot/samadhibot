@@ -8,7 +8,7 @@ activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
   # blog.prefix = 'blog'
 
-  blog.permalink = '{year}/{month}/{day}/{title}.html'
+  blog.permalink = '{year}/{month}/{day}/{title}'
   # Matcher for blog source files
   blog.sources = 'posts/{year}-{month}-{day}-{title}.html'
   # blog.taglink = 'tags/{tag}.html'
@@ -28,6 +28,8 @@ activate :blog do |blog|
   blog.paginate = true
   blog.per_page = 5
 end
+
+activate :directory_indexes
 
 page '/feed.xml', layout: false
 
@@ -91,10 +93,10 @@ end
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
 
   # Enable cache buster
   # activate :asset_hash
@@ -118,13 +120,7 @@ configure :build do
 end
 
 helpers do
-  def article_img(path, image_path = nil)
-    image_path ||= path
-    if current_article
-      image_tag "/images/posts/#{image_path}.jpg"
-    else
-      link_to image_tag("/images/posts/#{image_path}-small.jpg"),
-              "/#{path.gsub /(\d{4})-(\d{2})-(\d{2})-(.+)/, '\1/\2/\3/\4'}.html"
-    end
+  def article_img(path)
+    image_tag "/images/posts/#{path}#{current_article ? '' : '-small'}.jpg"
   end
 end
