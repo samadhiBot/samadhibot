@@ -1,10 +1,18 @@
 doctype html
 html
   head
-    meta charset="utf-8"
-    meta content="IE=edge;chrome=1" http-equiv="X-UA-Compatible"
-    meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    = yield_content :meta
+    meta charset='utf-8'
+    meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'
+    meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+    - if content_for? :meta
+      = yield_content :meta
+    - else
+      meta property='og:description' name='description' content=meta_description
+      meta property='og:image' content="#{config[:root]}/apple-touch-icon-152x152-precomposed.png"
+      meta property='og:title' content='samadhiBot'
+      meta property='og:type' content='blog'
+      meta property='og:url' content='http://one.samadhibot.com/'
+
     title समाधिBot#{" - #{current_article.title}" unless current_article.nil?}
     = feed_tag :atom, "#{config[:root]}/feed.xml", title: "Atom Feed"
     = stylesheet_link_tag 'screen', '//fonts.googleapis.com/css?family=Cabin+Sketch|EB+Garamond'

@@ -123,4 +123,28 @@ helpers do
   def article_img(path)
     image_tag "/images/posts/#{path}#{current_article ? '' : '-small'}.jpg"
   end
+
+  def meta_description
+    if current_article
+      current_article.data.description ||
+      "#{current_article.title} is an interview published on #{current_article.date.strftime("%B #{current_article.date.day.ordinalize} %Y")}. It resides in the #{current_article.tags.join ' '} portion of the site."
+    else
+      'samadhiBot (the website) is an ongoing investigation into Beauty and Truth. At the very least one should find many well-meaning stabs in the directions where we believed at some moment that Truth might most veritably lie. Ultimate Reality is our explicit and unambiguous goal.'
+    end
+  end
+end
+
+class Fixnum
+  def ordinalize
+    if (11..13).include?(self % 100)
+      "#{self}th"
+    else
+      case self % 10
+        when 1; "#{self}st"
+        when 2; "#{self}nd"
+        when 3; "#{self}rd"
+        else    "#{self}th"
+      end
+    end
+  end
 end
