@@ -3,6 +3,9 @@ ruby:
   article_url = "#{config[:root]}#{current_article.url}"
 
 - content_for :meta do
+  meta name='twitter:card' content='summary_large_image'
+  meta name='twitter:creator' content='@samadhiBot'
+  meta name='twitter:site' content='@samadhiBot'
   meta property='og:description' name='description' content=meta_description
   meta property='og:image' content=image_url
   meta property='og:title' content=current_article.title
