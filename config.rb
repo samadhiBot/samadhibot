@@ -126,10 +126,9 @@ helpers do
 
   def meta_description
     if current_article
-      current_article.data.description ||
-      "#{current_article.title} is an interview published on #{current_article.date.strftime("%B #{current_article.date.day.ordinalize} %Y")}. It resides in the #{current_article.tags.join ' '} portion of the site."
+      current_article.data.description || "#{current_article.title} was published on #{current_article.date.strftime("%B #{current_article.date.day.ordinalize} %Y")} as part of the #{current_article.tags.join ' '} series."
     else
-      'samadhiBot (the website) is an ongoing investigation into Beauty and Truth. At the very least one should find many well-meaning stabs in the directions where we believed at some moment that Truth might most veritably lie. Ultimate Reality is our explicit and unambiguous goal.'
+      'समाधिBot the person searches all around the house for Beauty and Truth, and samadhiBot the website delivers the goods.'
     end
   end
 end
