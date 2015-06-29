@@ -139,3 +139,6 @@ DEPENDENCIES
   middleman-favicon-maker (~> 3.7)
   middleman-gh-pages
   middleman-slim
+
+BUNDLED WITH
+   1.10.3
