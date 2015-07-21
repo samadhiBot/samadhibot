@@ -121,7 +121,7 @@ end
 
 helpers do
   def article_img(path)
-    image_tag "/images/posts/#{path}#{current_article ? '' : '-small'}.jpg"
+    image_tag "/images/posts/#{path}-small.jpg"
   end
 
   def meta_description
