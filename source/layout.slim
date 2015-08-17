@@ -52,6 +52,10 @@ html
             ol
               - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
                 li = link_to "#{year} (#{articles.size})", blog_year_path(year)
+      
+      a.feed(href='http://one.samadhibot.com/feed.xml')
+        = image_tag '/images/structure/feed.svg', 'data-pin-no-hover': true
+
 
       .copy &copy; #{Time.now.year} samadhiBot. All rights reserved.
 
