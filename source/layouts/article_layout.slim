@@ -2,17 +2,6 @@ ruby:
   image_url = "#{config[:root]}/images/posts/#{current_article.data.image}-small.jpg"
   article_url = "#{config[:root]}#{current_article.url}"
 
-- content_for :meta do
-  meta name='twitter:card' content='summary_large_image'
-  meta name='twitter:creator' content='@samadhiBot'
-  meta name='twitter:description' content=meta_description
-  meta name='twitter:site' content='@samadhiBot'
-  meta property='og:description' name='description' content=meta_description
-  meta property='og:image' content=image_url
-  meta property='og:title' content=current_article.title
-  meta property='og:type' content='article'
-  meta property='og:url' content=article_url
-
 = wrap_layout :layout do
   article
     h2 = current_article.title
@@ -21,5 +10,3 @@ ruby:
     .image = article_img(current_article.data.image)
 
     = yield
-
-    = partial 'share', locals: { title: current_article.title, url: article_url }

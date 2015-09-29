@@ -12,9 +12,7 @@ per_page: 5
       .image = link_to article_img(article.data.image), article.url
 
       = article.body
-
-      = partial 'share', locals: { title: article.title, url: "#{config[:root]}#{article.url}" }
-
+      
   - if paginate && num_pages > 1
     .pagination
       - if prev_page
